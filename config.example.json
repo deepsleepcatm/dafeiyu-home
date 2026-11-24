@@ -1,0 +1,118 @@
+{
+  "_说明": "把这份复制成 config.json 再改。所有路径用 ~ 开头表示主目录。不改也能跑，会用默认值。",
+  "dsh_home": "~/.dsh",
+  "chat": {
+    "_说明": "群聊服务。组名、数量、端口都由你定。",
+    "dir": "~/dsh-group-chat",
+    "port": 8765,
+    "groups": [
+      "组A",
+      "组B",
+      "组C"
+    ],
+    "_groups_说明": "你有几个组就写几个，不限于 3 个。组名会出现在 @ 里，比如 @组A",
+    "bot_senders": [
+      "接线员",
+      "机检",
+      "守护",
+      "秘书",
+      "提醒"
+    ],
+    "_bot_senders_说明": "这些名字发消息不会触发任何组",
+    "broadcast_pace_ms": 45000,
+    "_broadcast_pace_说明": "广播时每叫一个组隔多久（毫秒）。太小会同时烧钱",
+    "aliases": {},
+    "_aliases_说明": "组名的口语别名，比如 {'前端组': '组A'}",
+    "ops_group": "管理者",
+    "_ops_group_说明": "不受冷却/配额/静音限制的那个组（运维角色）",
+    "head_group": "协调组",
+    "_head_group_说明": "统筹裁定、话可以长一点的那个组",
+    "broadcast_exclude": [],
+    "_broadcast_exclude_说明": "@所有人 时不惊动这几个组",
+    "ask_re": "要学|不会|卡在|搞不定|不懂",
+    "short_names": {},
+    "_short_names_说明": "单字简写，比如 {'角色': '组A'}",
+    "role_desc": {},
+    "job": {},
+    "_job_说明": "每个组只管什么、不管什么，键是组名",
+    "chain": {},
+    "_chain_说明": "谁做完叫谁，{'上游组': '下游组'}",
+    "downstream": {},
+    "gate_groups": [],
+    "_gate_groups_说明": "哪些组的产出要过验收",
+    "ask_by_keyword": {},
+    "_ask_by_keyword_说明": "打回时按关键词找谁，{'配音': '组X'}",
+    "alert_session": "",
+    "_alert_session_说明": "告警投递到哪个会话 id，留空就不投",
+    "rank": [],
+    "_rank_说明": "成员列表的特殊排序"
+  },
+  "python": {
+    "_说明": "如果你的依赖装在某个 venv 里，填它的 python 绝对路径；留空用当前解释器",
+    "runtime": ""
+  },
+  "node": "",
+  "log_dir": "~/.dsh/logs",
+  "soul": {
+    "_说明": "灵魂模块的状态存哪",
+    "home": "~/.dsh/soul"
+  },
+  "memory": {
+    "_说明": "长期记忆存哪",
+    "dir": "~/.dsh/.engramory-memory",
+    "model_dir": "~/.dsh/mem-tools/models/bge-small-zh",
+    "_model_dir_说明": "语义检索模型。仓库里不带，第一次用会提示你下载（约几百 MB）",
+    "index": "~/.dsh/mem-tools/index.npz"
+  },
+  "services": {
+    "_说明": "看门要巡检哪些服务。name 随便起，marker 是进程命令行里能认出它的字符串",
+    "list": [
+      {
+        "name": "网页",
+        "marker": "server.py",
+        "cmd": [
+          "python",
+          "-u",
+          "server.py",
+          "--port",
+          "8765"
+        ]
+      },
+      {
+        "name": "群聊桥",
+        "marker": "chat-bridge.mjs",
+        "cmd": [
+          "node",
+          "chat-bridge.mjs"
+        ]
+      }
+    ]
+  },
+  "trash": {
+    "_说明": "安全删除的回收站",
+    "dir": "~/.dsh/.trash"
+  },
+  "workspace": "~/Documents/deepseek-harness/default-workspace",
+  "paths": {
+    "_说明": "各种路径。留空的项，用到它的功能会跳过（不会崩）",
+    "alert_file": "~/dsh-group-chat/alerts.jsonl",
+    "gate_py": "",
+    "_gate_py_说明": "验收脚本路径，没有就留空",
+    "workstation_dir": "~/dsh-group-chat/workstations",
+    "brief_card": "",
+    "_brief_card_说明": "给每个组的简短说明卡片（md），没有就留空",
+    "state_dir": "~/dsh-group-chat/status"
+  },
+  "meme": {
+    "_说明": "表情包图库位置",
+    "packs_dir": "~/.dsh/meme-packs"
+  },
+  "events": {
+    "_说明": "事件流文件",
+    "file": "~/.dsh/runtime/events.jsonl"
+  },
+  "guard": {
+    "_说明": "动作判据的心跳目录",
+    "heartbeat_dir": "~/.dsh/runtime/heartbeat"
+  }
+}

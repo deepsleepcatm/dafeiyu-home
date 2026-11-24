@@ -1,0 +1,12 @@
+# B-自研部分 需要的 Python 依赖
+# 装法：pip install -r requirements.txt
+#
+# 核心（记忆检索）：bge 向量 + onnx 推理
+numpy>=1.24
+onnxruntime>=1.16
+tokenizers>=0.15
+
+# mem-search.py 会用到的（可选，缺了就走关键词检索）
+# sentence-transformers>=2.2
+
+# 05-tools 里的工具只用标准库，不需要额外依赖

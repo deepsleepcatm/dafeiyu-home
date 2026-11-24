@@ -1,0 +1,27 @@
+{
+  "name": "dafeiyu-home-im",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "多会话群聊桥：群消息 → 叫醒对应的组 → 它的回复写回群",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-host-apiproxy": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-host-apiproxy": {
+      "optional": true,
+      "note": "DSH 自带这个包。如果你没装 DSH，群聊桥连不上，装了才有意义。"
+    }
+  },
+  "scripts": {
+    "start": "node chat-bridge.mjs",
+    "once": "node chat-bridge.mjs --once",
+    "server": "python server.py"
+  }
+}

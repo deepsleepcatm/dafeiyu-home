@@ -1,0 +1,35 @@
+# 配置：每个人不一样，别提交
+config.json
+
+# 运行产物
+*.log
+**/_回收站/
+**/__pycache__/
+**/*.pyc
+**/node_modules/
+
+# 状态和记忆（含个人数据）
+01-soul/state.json
+01-soul/timeline.jsonl
+01-soul/portrait.jsonl
+03-memory/MODEL*
+03-memory/models/
+03-memory/index.npz
+03-memory/weights.json
+
+# 图库（放 Release，不进仓库）
+07-memes/**/*.png
+07-memes/**/*.jpg
+07-memes/**/*.gif
+07-memes/**/*.webp
+
+# 模型和二进制
+*.safetensors
+*.onnx
+*.pth
+*.bin
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
